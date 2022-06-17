@@ -1,0 +1,154 @@
+<div class="row g-0 app-auth-wrapper">
+  <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+    <div class="d-flex flex-column align-content-end">
+      <div class="app-auth-body mx-auto">
+        <div class="app-auth-branding mb-4">
+          <a class="app-logo"
+            ><img
+              class="logo-icon me-2"
+              src="assets/images/app-logo.svg"
+              alt="logo"
+          /></a>
+        </div>
+        <h2 class="auth-heading text-center mb-4">Sign up to Portal</h2>
+
+        <div class="auth-form-container text-start mx-auto">
+          <form
+            class="auth-form auth-signup-form"
+            [formGroup]="registerForm"
+            (ngSubmit)="RegisterCustomer()"
+          >
+            <div class="email mb-3">
+              <input
+                id="signup-name"
+                name="signup-name"
+                type="text"
+                class="form-control signup-name"
+                placeholder="Full name"
+                formControlName="username"
+              />
+              <div
+                class="error-message"
+                *ngIf="
+                  registerForm.get('username')?.invalid &&
+                  registerForm.get('username')?.touched
+                "
+              >
+                <span *ngIf="registerForm.get('username')?.hasError('required')"
+                  >Name is required
+                </span>
+              </div>
+            </div>
+            <div class="email mb-3">
+              <input
+                id="signup-Phone"
+                name="signup-Phone"
+                type="text"
+                class="form-control signup-name"
+                placeholder="Phone Number"
+                formControlName="phoneNumber"
+              />
+              <div
+                class="error-message"
+                *ngIf="
+                  registerForm.get('phoneNumber')?.invalid &&
+                  registerForm.get('phoneNumber')?.touched
+                "
+              >
+                <span
+                  *ngIf="registerForm.get('phoneNumber')?.hasError('required')"
+                  >Phone number is required
+                </span>
+                <span
+                  *ngIf="registerForm.get('phoneNumber')?.hasError('pattern')"
+                  >please enter valid Phone Number</span
+                >
+              </div>
+            </div>
+            <div class="email mb-3">
+              <input
+                id="signup-email"
+                name="signup-email"
+                type="email"
+                class="form-control signup-email"
+                placeholder="Email"
+                formControlName="email"
+              />
+              <div
+                class="error-message"
+                *ngIf="
+                  registerForm.get('email')?.invalid &&
+                  registerForm.get('email')?.touched
+                "
+              >
+                <span *ngIf="registerForm.get('email')?.hasError('required')"
+                  >Email is required
+                </span>
+                <span *ngIf="registerForm.get('email')?.hasError('pattern')"
+                  >please enter valid email</span
+                >
+              </div>
+            </div>
+            <div class="password mb-3">
+              <input
+                id="signup-password"
+                name="signup-password"
+                type="password"
+                class="form-control signup-password"
+                placeholder="Create a password"
+                formControlName="password"
+              />
+              <div
+                class="error-message"
+                *ngIf="
+                  registerForm.get('password')?.invalid &&
+                  registerForm.get('password')?.touched
+                "
+              >
+                <span *ngIf="registerForm.get('password')?.hasError('required')"
+                  >Password is required</span
+                >
+                <span
+                  *ngIf="registerForm.get('password')?.hasError('minlength')"
+                  >Password must be 6 digits</span
+                >
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button
+                type="submit"
+                class="btn app-btn-primary w-100 theme-btn mx-auto"
+                [disabled]="!registerForm.valid"
+              >
+                Sign Up
+              </button>
+            </div>
+          </form>
+          <!--//auth-form-->
+
+          <div class="auth-option text-center pt-5">
+            Already have an account?
+            <a class="text-link" [routerLink]="'/auth/login'">Log in</a>
+          </div>
+        </div>
+        <!--//auth-form-container-->
+      </div>
+      <!--//auth-body-->
+    </div>
+    <!--//flex-column-->
+  </div>
+  <!--//auth-main-col-->
+  <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
+    <div class="auth-background-holder"></div>
+    <div class="auth-background-mask"></div>
+    <div class="auth-background-overlay p-3 p-lg-5">
+      <div class="d-flex flex-column align-content-end h-100">
+        <div class="h-100"></div>
+      </div>
+    </div>
+    <!--//auth-background-overlay-->
+  </div>
+  <!--//auth-background-col-->
+</div>
+<!--//row-->
