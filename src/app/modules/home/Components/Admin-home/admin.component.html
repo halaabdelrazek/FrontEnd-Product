@@ -1,1 +1,62 @@
-<p>admin works!</p>
+<nav class="navbar navbar-light">
+    <div class="container">
+      <span class="navbar-brand mb-0 h1 text-blue"></span>
+      <button type="button" (click)="logout()" class="btn btn-success m-2">LogOut</button>
+    </div>
+  </nav>
+  
+<div class="container-fluid mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Orders Table</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered text-center" id="excel-table">
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Total Price</th>
+              <th>Created Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.orderNumber }}</td>
+              <td>{{ order.totalPrice }}</td>
+              <td>{{ order.orderCreatedDate | date }}</td>
+
+              <td>
+                <select [(ngModel)]="order.orderStatus" >
+                  <option
+                    *ngFor="let val of getEnumValues()"
+                    ngValue="{{ val }}"
+                    [attr.selected]="val == order.orderStatus ? true : null"
+                  >
+                    {{ statues[val] }}
+                  </option>
+
+              
+                </select>
+              </td>
+              <td>
+                <button
+                type="button"
+                (click)="SbmitChange($event, order)"
+                class="btn btn-success m-1"
+              >
+                save
+              </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+</div>
+

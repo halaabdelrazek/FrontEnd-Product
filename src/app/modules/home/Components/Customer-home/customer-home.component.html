@@ -1,3 +1,11 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1 text-blue"></span>
+    <button type="button" (click)="logout()" class="btn btn-success m-2">LogOut</button>
+  </div>
+</nav>
+
+
 <div class="container-fluid mt-4">
   <div class="card">
     <div class="card-header">
@@ -26,7 +34,7 @@
                   alt="Image"
                 />
               </td>
-              <td><input type="number" min="0" step="1" /></td>
+              <td><input [(ngModel)]= "product.productCount" type="number" min="0" step="1"  /></td>
             </tr>
           </tbody>
         </table>
@@ -38,6 +46,6 @@
 <nav class="navbar navbar-light">
   <div class="container">
     <span class="navbar-brand mb-0 h1 text-blue"></span>
-    <button type="button" class="btn btn-success m-2">Sumbit Order</button>
+    <button type="button" (click)="SubmitOrder()" class="btn btn-success m-2">Sumbit Order</button>
   </div>
 </nav>

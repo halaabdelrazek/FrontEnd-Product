@@ -16,11 +16,11 @@ export class AuthService {
   constructor(private http:HttpClient,private router: Router){}
 
   login(loginUser:LoginUser){
-    return this.http.post<LoginUser>(this.baseURL+'/login',loginUser);
+    return this.http.post(this.baseURL+'/login',loginUser);
   }
 
   RegisterCustomer(newUser:registerUser){
-    return this.http.post<registerUser>(this.baseURL+'/CustomerRegister',newUser);
+    return this.http.post(this.baseURL+'/CustomerRegister',newUser);
   }
 
   logout(){
